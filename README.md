@@ -2,7 +2,7 @@
 
 # PHYS220/MATH220/CPSC220 CW 7
 
-**Author(s):** **Amelia & Gwyneth**
+**Author(s):** **Amelia,Gwyneth,& Gabriella**
 
 ## Specification
 
@@ -29,4 +29,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-**Amelia & Gwyneth**
+**Amelia,Gwyneth,& Gabriella**
