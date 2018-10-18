@@ -18,20 +18,7 @@ import math
 import numpy as np
 
 def sinc_list(a, b, n=1000):
-    """gen_gaussian_list(a, b, n=1000)
-    Generate a discrete approximation of a Gaussian function, including its
-    domain and range, stored as a pair of vanilla python lists.
-    
-    Args:
-        a (float) : Lower bound of domain
-        b (float) : Upper bound of domain
-        n (int, optional) : Number of points in domain, defaults to 1000.
-    
-    Returns:
-        (x, g) : Pair of lists of floats
-            x  : [a, ..., b] List of n equally spaced floats between a and b
-            g  : [g(a), ..., g(b)] List of Gaussian values matched to x
-    """
+
     dx = (b-a)/(n-1)
     x = [a + k*dx for k in range(n)]
 
@@ -46,21 +33,6 @@ def sinc_list(a, b, n=1000):
 
 
 def sinc_array(a, b, n=1000):
-    """sinc_array(a, b, n=1000)
-    Generate a discrete approximation of a sinc function, including its
-    domain and range, stored as a pair of numpy arrays.
-    
-    Args:
-        a (float) : Lower bound of domain
-        b (float) : Upper bound of domain
-        n (int, optional) : Number of points in domain, defaults to 1000.
-    
-    Returns:
-        (x, s) : Pair of numpy arrays of float64
-            x  : [a, ..., b] Array of n equally spaced float64 between a and b
-            s  : [s(a), ..., s(b)] Array of sinc values matched to x
-    """
-
 
     x = np.linspace(a, b, endpoint=True, num=n)
 
@@ -71,7 +43,7 @@ def sinc_array(a, b, n=1000):
     s = sinc(x)
     return (x, s)
 
-def gen_sinf_list(a, b, n=1000):
+def sinf_list(a, b, n=1000):
     """
     Args:
         a (float) : Lower bound of domain
