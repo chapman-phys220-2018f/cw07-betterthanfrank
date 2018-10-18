@@ -17,6 +17,16 @@ python lists.
 import math
 import numpy as np
 
+def gen_gaussian_list(a, b, n=1000):
+
+    dx = (b-a)/(n-1)
+    x = [a + k*dx for k in range(n)]
+
+    def gauss(x):
+        return (1/math.sqrt(2*math.pi))*math.exp(-x**2/2)
+    g = [gauss(xk) for xk in x]
+    return (x, g)
+
 def sinc_list(a, b, n=1000):
 
     dx = (b-a)/(n-1)
@@ -31,6 +41,15 @@ def sinc_list(a, b, n=1000):
     sinc = [sinc(xk) for xk in x]
     return (x, sinc)
 
+def gen_gaussian_array(a, b, n=1000):
+
+    x = np.linspace(a, b, n)
+
+    def gauss(x):
+        return (1/np.sqrt(2*np.pi))*np.exp(-x**2/2)
+
+    g = gauss(x)
+    return (x, g)
 
 def sinc_array(a, b, n=1000):
 
@@ -44,18 +63,9 @@ def sinc_array(a, b, n=1000):
     return (x, s)
 
 def sinf_list(a, b, n=1000):
-    """
-    Args:
-        a (float) : Lower bound of domain
-        b (float) : Upper bound of domain
-        n (int, optional) : Number of points in domain, defaults to 1000.
-    Returns:
-        (x, g) : Pair of lists of floats
-        x  : [a, ..., b] List of n equally spaced floats between a and b
-        g  : [g(a), ..., g(b)] List of sinf values matched to x
-    """
-    dx = (b-a)/(n-1)                         # spacing between points
-    x = [a + k*dx for k in range(n)]         # domain list
+
+    dx = (b-a)/(n-1)
+    x = [a + k*dx for k in range(n)]
     x = [z for z in x if z != 0]
 
     def sinf(x):
